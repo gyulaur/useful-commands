@@ -1,0 +1,19 @@
+Start zookeeper:
+/usr/local/zookeeper/bin/zkServer.sh start
+check zookeeper:
+telnet localhost 2181
+srvr
+
+Start kafka:
+/usr/local/kafka/bin/kafka-server-start.sh -daemon /usr/local/kafka/config/server.properties
+Stop kafka:
+/usr/local/kafka/bin/kafka-server-stop.sh
+
+Create and describe topic:
+/usr/local/kafka/bin/kafka-topics.sh --create --zookeeper localhost:2181 --replication-factor 1 --partitions 1 --topic test
+/usr/local/kafka/bin/kafka-topics.sh --describe --zookeeper localhost:2181 --topic test
+
+Produce message:
+/usr/local/kafka/bin/kafka-console-producer.sh --broker-list localhost:9092 --topic test
+Consume:
+/usr/local/kafka/bin/kafka-console-consumer.sh --topic test --from-beginning --bootstrap-server localhost:9092
