@@ -1,0 +1,4 @@
+docker network connect "kind" "kind-registry"
+
+kind delete cluster
+kind create cluster --config kind-ingress.yaml
