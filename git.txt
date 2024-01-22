@@ -1,0 +1,2 @@
+Change email for current repo:
+ git config user.email "YOUR_EMAIL"
